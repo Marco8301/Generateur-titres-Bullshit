@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Générateur de titres bullshit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Générateur de titres bullshit</h1>
+    <section>
+        <p id="texte" style="display:inline;">Bienvenue sur le Générateur de titres bullshit !</p>
+        <p id="texte2" style="display:inline"> Cliquez sur le bouton</p>
+        <p id="texte3" style="display:inline"> pour générer votre dose quotidienne d'inspiration.</p>
+        <p id="texte4" style="display:inline"></p>
+        <button id="btn" style="display:block;">Générer votre dose d'inspiration</button>
+    </section>
+
+    <button id="btntweet" style="display:none;">
+        <a id="tweet" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=" data-size="large"
+            target="blank">Tweeter ce titre</a></button>
+
+    <script>
+        var tabsujet = [
+            "Cet artiste",
+            "Cet artiste engagé",
+            "Ce designer",
+            "Ce graphiste",
+            "Il",
+            "Elle",
+            "Cette graphiste",
+            "Cette artiste engagée",
+            "Cette designeuse",
+            "Ce créatif",
+            "Cet illustrateur",
+            "Cette illustratrice",
+            "Ce photographe",
+            "Cette photographe",
+            "Ce collectif d'artistes",
+            "Cette maman créative",
+            "Cette élève précoce",
+            "Ce vieux monsieur",
+            "Cet adorable couple",
+            "Un papa créatif",
+            "Ce peintre aveugle",
+            "Ce génie de l'ilustration",
+            "Ce génie de l'animation",
+            "Ce street artiste"
+        ];
+
+        var tabverbe = [
+            "dessine des",
+            "reproduit des",
+            "peint des",
+            "détourne des photos de",
+            "imagine les",
+            "parodie des",
+            "fait des bandes-déssinées avec des",
+            "met en scène des",
+            "revisite des"
+        ];
+
+        var tabperso = [
+            "personnages de la pop culture",
+            "princesses Disney",
+            "super-héros Marvel",
+            "Pokemon de la première génération",
+            "personnages DC Comics",
+            "chats célèbres sur internet",
+            "personnages de Stranger Things",
+            "popstars iconiques",
+            "personnages de Dragon Ball",
+            "personnages de Star Wars",
+            "personnages de Fortnite",
+            "dirigeants mondiaux",
+            "personnages de Manga célèbres"
+        ];
+
+        var tabmedia = [
+            "avec ses excréments",
+            "avec du sable noir volcanique",
+            "avec du marc de café équitable",
+            "sous acide",
+            "de manière vintage",
+            "avec un handicap physique pour dénoncer le validisme",
+            "de façon minimaliste",
+            "avec des habits de samuraï",
+            "dans l'univers de Tim Burton",
+            "pour alerter sur le changement climatique",
+            "avec un look hipster",
+            "en pixel-art",
+            "avec les graphismes de Minecraft",
+            "avec des déchets plastiques récupérés dans la nature",
+            "façon cyberpunk",
+            "avec un look flower power",
+            "pour célébrer le polyamour",
+            "pour dénoncer la corruption",
+            "pour dénoncer la faim dans le monde",
+            "pour rendre hommage aux réfugiés",
+            "pour apporter un message de paix",
+            "vivant dans l'ex-URSS",
+            "en stop motion"
+        ];
+
+        tabmaster = [tabsujet, tabverbe, tabperso, tabmedia];
+
+        var textes = document.getElementsByTagName('p');
+        var btn = document.getElementById('btn');
+        var tweet = document.getElementById('tweet');
+        var btntweet = document.getElementById('btntweet');
+
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        function afficher() {
+            btn.innerHTML = "Générer une autre dose d'inspiration"
+            btntweet.style.display = "block";
+            let phrase = [];
+            for (let i = 0; i < textes.length; i++) {
+                textes[i].innerText = tabmaster[i][getRandomInt(tabmaster[i].length)];
+                phrase.push(textes[i].innerText)
+                console.log(phrase);
+                tweet.href = 'https://twitter.com/intent/tweet?text=From Générateur de titres bullshit : "' + phrase[0] + ' ' + phrase[1] + ' ' + phrase[2] + ' ' + phrase[3] + '"'
+            }
+        }
+
+        btn.addEventListener('click', afficher)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+* {
+    text-align:center;
+}
+
+section {
+    width:70%;
+    margin: 0 auto;
+    border:1px dashed silver;
+}
+
+button {
+    margin: 10px auto;
+    padding:10px;
+    
+}
